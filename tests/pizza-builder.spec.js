@@ -7,7 +7,7 @@ const pascalCaseToDashSeparated = (value) =>
     .join('-')
     .toLowerCase();
 
-const extractAmountFromPrice = (price) => Number(price.replace(/\$ /g, ''));
+const extractAmountFromPrice = (price) => Number(price.replace(/\$/g, ''));
 
 const getPageState = () => page.evaluate(() => state);
 
@@ -120,6 +120,8 @@ describe('Ironhack Pizza Builder', () => {
     it('should render base price for pizza', async () => {
       const $totalPrice = await page.$('.price > *:last-child');
       const value = await $totalPrice.evaluate((element) => element.innerText);
+      console.log(value,"this is value")
+      console.log(extractAmountFromPrice(value),"my value")
       const amount = extractAmountFromPrice(value);
       expect(amount).toBe(10);
     });

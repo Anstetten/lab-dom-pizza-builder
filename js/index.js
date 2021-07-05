@@ -98,7 +98,7 @@ function renderButtons() {
   document.querySelectorAll('.btn').forEach((button,index)=>{
     if (stateArray[index]){
       button.classList.add("active");
-      console.log("hahahahah");
+    
     }
     else{
       button.classList.remove("active");
@@ -115,7 +115,7 @@ function renderPrice() {
   let price = basePrice;
   for ( let ingredient in ingredients)
     {
-      console.log(ingredients[ingredient].price);
+     
       if (state[ingredient]){
       let listElement=document.createElement('li');
       price = price + ingredients[ingredient].price;
@@ -157,7 +157,7 @@ document.querySelector('.btn.btn-sauce').addEventListener('click', function () {
   state.whiteSauce = !state.whiteSauce;
   renderEverything();
 });
-
+console.log("foo")
 // Iteration 2: Add click event listener on `<button class="btn btn-crust">`
 
 document.querySelector('.btn.btn-crust').addEventListener('click', function () {

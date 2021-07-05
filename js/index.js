@@ -33,6 +33,7 @@ function renderEverything() {
 }
 
 function renderPepperoni() {
+  
   document.querySelectorAll('.pep').forEach((onePep) => {
     if (state.pepperoni) {
       onePep.style.visibility = 'visible';
@@ -93,6 +94,18 @@ function renderGlutenFreeCrust() {
 
 function renderButtons() {
   // Iteration 3: add/remove the class "active" of each `<button class="btn">`
+  let stateArray= Object.values(state);
+  document.querySelectorAll('.btn').forEach((button,index)=>{
+    if (stateArray[index]){
+      button.classList.add("active");
+      console.log("hahahahah");
+    }
+    else{
+      button.classList.remove("active");
+      
+    }
+  })
+ 
 }
 
 function renderPrice() {

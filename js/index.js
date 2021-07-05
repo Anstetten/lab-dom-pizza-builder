@@ -110,6 +110,23 @@ function renderButtons() {
 
 function renderPrice() {
   // Iteration 4: change the HTML of `<aside class="panel price">`
+  let listOfItems = document.querySelector(".panel.price ul");
+  listOfItems.innerHTML="";
+  let price = basePrice;
+  for ( let ingredient in ingredients)
+    {
+      console.log(ingredients[ingredient].price);
+      if (state[ingredient]){
+      let listElement=document.createElement('li');
+      price = price + ingredients[ingredient].price;
+      listElement.innerHTML=`$${ingredients[ingredient].price} ${ingredients[ingredient].name}`;
+      listOfItems.appendChild(listElement);
+     }
+  }
+  document.querySelector("aside b").innerHTML=`$${basePrice} cheese pizza`;
+  document.querySelector("aside strong").innerHTML=`$${price}`;
+
+
 }
 
 renderEverything();
